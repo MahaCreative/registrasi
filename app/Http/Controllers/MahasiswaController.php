@@ -16,7 +16,10 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        return MahasiswaResource::collection(Mahasiswa::get());
+        $response['kode'] = 1;
+        $response['pesan'] = 'Data Tersedia';
+        $response['data'] = MahasiswaResource::collection(Mahasiswa::get());
+        return json_encode($response);
     }
 
     /**
