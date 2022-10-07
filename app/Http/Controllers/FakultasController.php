@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\MahasiswaResource;
-use App\Models\Mahasiswa;
-use App\Models\User;
+use App\Models\Fakultas;
 use Illuminate\Http\Request;
 
-class MahasiswaController extends Controller
+class FakultasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,9 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $response['kode'] = 1;
-        $response['pesan'] = 'Data Tersedia';
-        $response['data'] = MahasiswaResource::collection(Mahasiswa::get());
+        $response['kode'] = 200;
+        $response['message'] = 'berhasil';
+        $response['data'] =  Fakultas::all();
         return json_encode($response);
     }
 
@@ -30,35 +28,28 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Mahasiswa::create([
-            'nim' => $request->nim,
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'telp' => $request->telp,
-            'id_prodi' => $request->id_prodi,
-
-        ]);
-        return $user;
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\Fakultas  $fakultas
      * @return \Illuminate\Http\Response
      */
-    public function show(Mahasiswa $mahasiswa)
+    public function show(Fakultas $fakultas)
     {
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\Fakultas  $fakultas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(Request $request, Fakultas $fakultas)
     {
         //
     }
@@ -66,10 +57,10 @@ class MahasiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\Fakultas  $fakultas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mahasiswa $mahasiswa)
+    public function destroy(Fakultas $fakultas)
     {
         //
     }
